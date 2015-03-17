@@ -1,6 +1,6 @@
 # Codebook
 
-This is a codebook describing all the variables in the data set "data2.txt" produced by the R script "run_analysis.R" included in this repository for the course project of "Getting and Cleaning Data" on Coursera.com
+This is a codebook describing the variables and observations in the data set "data2.txt" produced by the R script "run_analysis.R" included in this repository for the course project of "Getting and Cleaning Data" on Coursera.com
 
 ## Original data
 The data are collected from accelerometers from the Samsung Galaxy S smartphone during an experiment with 30 volunteers. A full description is available [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). The data can be downloaded [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip).
@@ -17,3 +17,10 @@ The transformed data show the average of each variable/feature for each activity
 - **observations**: The transformed data contain one row for each volunteer (identified by the variable 'subject_id') and for each activity carried out by that volunteer (identified by the variable 'activity_id). There are 30 volunteers ('subject_id' runs from 1 to 30) and 6 activities (walking, walking_upstairs, walking_downstairs, sitting, standing and laying). Therefore the number of observations is 30x6=180.
 
 ## Transformations
+The script "run_analysis.R" does the following:
+1. It reads the data from the working directory.
+2. It labels the data set with descriptive variable names. 
+3. It extracts only the measurements on the mean and standard deviation for each measurement. 
+4. It merges the training and the test sets to create one data set.
+5. It uses descriptive activity names to name the activities in the data set.
+6. It creates a second, independent tidy data set ("data2.txt") with the average of each variable for each activity and each subject.
