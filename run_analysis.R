@@ -1,12 +1,21 @@
+# Set working directory to the directory containing the UCI HAR Dataset
+#setwd("~/Documents/Coursera/GettingCleaningData/UCI HAR Dataset")
+
+# Clean workspace
 remove(list=ls())
 
-# Set your working directory to the directory containing the UCI HAR Dataset
-#setwd("~/Documents/Coursera/GettingCleaningData/UCI HAR Dataset")
+# Load additional packages
 library(dplyr)
 
 # Read text-files containing labels for each activity and each feature
 activity_labels<-read.table("activity_labels.txt")
 feature_labels<-read.table("features.txt")
+
+# Clean up the feature labels so they can be used as variable names
+feature_labels$V2<-sub("\\(\\)\\-",".",feature_labels$V2)
+feature_labels$V2<-sub("\\(\\)","",feature_labels$V2)
+feature_labels$V2<-sub(",","",feature_labels$V2)
+feature_labels$V2<-sub("-",".",feature_labels$V2)
 
 # Read text-files containing data
 subject_train<-read.table("train/subject_train.txt",col.names="subject_id")
