@@ -22,16 +22,6 @@ X_test<-read.table("test/X_test.txt")
 # Find which feature labels contain the strings "mean()" or "std()"
 col_id<-grep("mean\\(\\)|std\\(\\)",feature_labels$V2)
 
-# Create data frame containing subject_id activity_id and ONLY features containing mean and std
-train_data<-data.frame(subject_train,y_train,X_train[,col_id])
-test_data<-data.frame(subject_test,y_test,X_test[,col_id])
-
-# Merge train and test data
-data<-rbind(train_data,test_data)
-
-# Apply activity labels to activity_id
-data$activity_id<-factor(data$activity_id,levels=c(1:6),labels=activity_labels$V2)
-
 # Clean up the feature labels so they can be used as variable names
 feature_labels$V2<-sub("\\(\\)\\-",".",feature_labels$V2)
 feature_labels$V2<-sub("\\(\\)","",feature_labels$V2)
@@ -41,6 +31,16 @@ feature_labels$V2<-sub("-",".",feature_labels$V2)
 # Apply feature labels as variable names to the columns of X_train
 names(X_train)<-feature_labels$V2
 names(X_test)<-feature_labels$V2
+
+# Create data frame containing subject_id activity_id and ONLY features containing mean and std
+train_data<-data.frame(subject_train,y_train,X_train[,col_id])
+test_data<-data.frame(subject_test,y_test,X_test[,col_id])
+
+# Merge train and test data
+data<-rbind(train_data,test_data)
+
+# Apply activity labels to activity_id
+data$activity_id<-factor(data$activity_id,levels=c(1:6),labels=activity_labels$V2)
 
 # Group data by activity and subject
 data <- group_by(data,subject_id, activity_id)
