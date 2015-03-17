@@ -12,7 +12,7 @@ The data are collected from accelerometers from the Samsung Galaxy S smartphone 
 ## Transformed data
 The transformed data show the average of each variable/feature for each activity and each subject (so it shows the averages across all the 50 Hz measurements). 
 
-- **variables**: The transformed data contains only the variables on the mean and standard deviation for each feature. These variables are then averaged across all the measurements with each activity and each subject. This leads to 66 variables (in addition to the subject_id and activity_id): 33 means and 33 standard deviations. So in total the data set contains 68 columns.
+- **variables**: The transformed data contains only the variables on the mean and standard deviation for each feature. I chose to only keep the variables that contain the strings "mean()" and "std()", not the additional angle variables than contain the string "Mean". These variables are then averaged across all the measurements with each activity and each subject. This leads to 66 variables (in addition to the subject_id and activity_id): 33 means and 33 standard deviations. So in total the data set contains 68 columns.
 
 - **observations**: The transformed data contain one row for each volunteer (identified by the variable 'subject_id') and for each activity carried out by that volunteer (identified by the variable 'activity_id). There are 30 volunteers ('subject_id' runs from 1 to 30) and 6 activities (walking, walking_upstairs, walking_downstairs, sitting, standing and laying). Therefore the number of observations is 30x6=180.
 
