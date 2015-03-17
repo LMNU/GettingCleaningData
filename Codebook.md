@@ -18,6 +18,7 @@ The transformed data show the average of each variable/feature for each activity
 
 ## Transformations
 The script "run_analysis.R" does the following:
+
 1. It reads the data from the working directory.
 2. It labels the data set with descriptive variable names. 
 3. It extracts only the measurements on the mean and standard deviation for each measurement. 
