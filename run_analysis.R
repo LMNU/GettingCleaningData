@@ -1,5 +1,6 @@
 remove(list=ls())
 
+# Set your working directory to the directory containing the UCI HAR Dataset
 #setwd("~/Documents/Coursera/GettingCleaningData/UCI HAR Dataset")
 library(dplyr)
 
